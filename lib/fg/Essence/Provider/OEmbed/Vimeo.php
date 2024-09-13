@@ -25,7 +25,7 @@ class Vimeo extends \fg\Essence\Provider\OEmbed {
 
 		parent::__construct(
 			'#vimeo\.com#i',
-			'http://vimeo.com/api/oembed.json?url=%s',
+			'https://vimeo.com/api/oembed.json?url=%s',
 			self::json
 		);
 	}
@@ -34,10 +34,10 @@ class Vimeo extends \fg\Essence\Provider\OEmbed {
 
 	/**
 	 *	Refactors URLs like these :
-	 *		- http://player.vimeo.com/video/20830433
+	 *		- https://player.vimeo.com/video/20830433
 	 *
 	 *	in such form :
-	 *		- http://www.vimeo.com/20830433
+	 *		- https://www.vimeo.com/20830433
 	 *
 	 *	@param string $url URL to refactor.
 	 *	@return string Refactored URL.
@@ -48,7 +48,7 @@ class Vimeo extends \fg\Essence\Provider\OEmbed {
 		$url = parent::_prepare( $url );
 
 		if ( preg_match( "#player\.vimeo\.com/video/([0-9]+)#i", $url, $matches )) {
-			return 'http://www.vimeo.com/' . $matches[ 1 ];
+			return 'https://www.vimeo.com/' . $matches[ 1 ];
 		}
 
 		return $url;
